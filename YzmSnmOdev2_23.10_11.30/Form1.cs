@@ -27,6 +27,7 @@ namespace YzmSnmOdev2_23._10_11._30
 
         point fare = new point();
         point peynir = new point();
+        point fare_buffer = new point();
 
         int fareSayisi = 0;
         int peynirSayisi = 0;
@@ -48,6 +49,7 @@ namespace YzmSnmOdev2_23._10_11._30
             btn_AddCheese.Enabled = false;
             btn_Start.Enabled = false;
             btn_Kaldir.Enabled = false;
+            lblDurum.Text = "En boy girdisi bekleniyor";
         }
 
         //txtboxlarin sadece sayı alması
@@ -61,15 +63,15 @@ namespace YzmSnmOdev2_23._10_11._30
         }
         private void btn_DrawMap_Click(object sender, EventArgs e)
         {
-            
+            lblDurum.Text = "Nesnelerin yerleştirilmesi bekleniyor";
             gbx_Labyrinth.SetBounds(0, 0, 0, 0);
             gbx_Labyrinth.AutoSize = true;
             gbx_ControlPanel.Width = 375;
             gbx_ControlPanel.Height = 440;
 
-            if(txt_Height.Text!="" && txt_Width.Text!="")
-            { en = Convert.ToInt32(txt_Width.Text);
-            boy = Convert.ToInt32(txt_Height.Text);
+            if(numHeight.Text!="" && numWidth.Text!="")
+            { en = Convert.ToInt32(numWidth.Text);
+            boy = Convert.ToInt32(numHeight.Text);
             dizi = new int[boy, en];
             butonlar = new Button[boy, en];
             visited = new bool[boy, en];
@@ -123,8 +125,8 @@ namespace YzmSnmOdev2_23._10_11._30
             gbx_ControlPanel.AutoSize = true;
            
             btn_DrawMap.Enabled = false;
-            txt_Width.Enabled = false;
-            txt_Height.Enabled = false;
+            numHeight.Enabled = false;
+            numWidth.Enabled = false;
 
             btn_AddWalls.Enabled = true;
                 btn_AddMouse.Enabled = true;
@@ -140,6 +142,7 @@ namespace YzmSnmOdev2_23._10_11._30
 
         private void btn_AddWalls_Click(object sender, EventArgs e)
         {
+            lblDurum.Text = "Seçilen kareler duvar oluyor";
             kaldir = false;
             duvarEkle = true;
             fareEkle = false;
@@ -151,7 +154,7 @@ namespace YzmSnmOdev2_23._10_11._30
        
         private void btn_AddMouse_Click(object sender, EventArgs e)
         {
-
+            lblDurum.Text = "Seçilen kareler fare oluyor";
             kaldir = false;
             fareEkle = true;
             duvarEkle = false;
@@ -160,13 +163,23 @@ namespace YzmSnmOdev2_23._10_11._30
 
         private void btn_AddCheese_Click(object sender, EventArgs e)
         {
-
+            lblDurum.Text = "Seçilen kareler peynir oluyor";
             kaldir = false;
             peynirEkle = true;
             duvarEkle = false;
             fareEkle = false;
             
         }
+
+        private void btn_Kaldir_Click(object sender, EventArgs e)
+        {
+            lblDurum.Text = "Seçilen kareler yol olarak değiştiriliyor";
+            kaldir = true;
+            duvarEkle = false;
+            peynirEkle = false;
+            fareEkle = false;
+        }
+
 
         private void b_Click(object sender, EventArgs e)
         {
@@ -201,6 +214,9 @@ namespace YzmSnmOdev2_23._10_11._30
                     
                 fare.x = b.Left / 50;
                 fare.y = b.Top / 50;
+
+                    fare_buffer.x = fare.x;
+                    fare_buffer.y = fare.y;
                 }
                 
                 }
@@ -230,14 +246,14 @@ namespace YzmSnmOdev2_23._10_11._30
                     b.Image = Properties.Resources.road;
                     dizi[b.Top / 50, b.Left / 50] = 1;
                     b.Tag = "yol";
-                    kaldir = false;
+                    //kaldir = false;
                 }
                 else if (b.Tag.ToString() == "fare")
                 {
                     b.Image = Properties.Resources.road;
                     dizi[b.Top / 50, b.Left / 50] = 1;
                     b.Tag = "yol";
-                    kaldir = false;
+                   // kaldir = false;
                     fareSayisi--;
                 }
                 else if (b.Tag.ToString() == "peynir")
@@ -245,13 +261,13 @@ namespace YzmSnmOdev2_23._10_11._30
                     b.Image = Properties.Resources.road;
                     dizi[b.Top / 50, b.Left / 50] = 1;
                     b.Tag = "yol";
-                    kaldir = false;
+                  //  kaldir = false;
                     peynirSayisi--;
                 }
                 else
                 {
                     MessageBox.Show("Burası zaten boş");
-                    kaldir = false;
+                  //  kaldir = false;
                 }
             }
             
@@ -285,7 +301,15 @@ namespace YzmSnmOdev2_23._10_11._30
             {
                 timer1.Stop();
                 MessageBox.Show("Peynir Bulundu!!!");
-                
+                DialogResult devam = MessageBox.Show("Yeniden Başlamak İçin (Evet) / Düzenlemeye Devam Etmek İçin (Hayır)", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (devam == System.Windows.Forms.DialogResult.Yes)
+                {
+                    YenidenBasla();
+                }
+                else
+                {
+                    DevamEt();
+                }
             }
             
            
@@ -368,16 +392,10 @@ namespace YzmSnmOdev2_23._10_11._30
             
         }
 
-        private void btn_Kaldir_Click(object sender, EventArgs e)
-        {
-            kaldir = true;
-            duvarEkle = false;
-            peynirEkle = false;
-            fareEkle = false;
-        }
-
+      
         private void btn_Start_Click(object sender, EventArgs e)
         {
+            lblDurum.Text = "Hareket gerçekleşiyor";
             int adim = 0;
             duvarEkle = false;
             if(fareSayisi==1 && peynirSayisi==1)
@@ -389,7 +407,7 @@ namespace YzmSnmOdev2_23._10_11._30
                 btn_AddCheese.Enabled = false;
                 adim = Bfs(fare, peynir);
                 //adim -1 donmusse farenin veya peynirin etrafi cevrilidir
-                if (adim!=-1)
+                if (adim != -1)
                 {
                     MessageBox.Show("Fare " + adim.ToString() + " adımda peynire ulaşabiliyor.");
 
@@ -412,7 +430,7 @@ namespace YzmSnmOdev2_23._10_11._30
                         //kuzey guney dogu batida uzaklikla aynı degerde point varsa onu peynirbuffer yap
                         for (int i = 0; i < 4; i++)
                         {
-                            int satir= peynir_buffer.x + satirNum[i];
+                            int satir = peynir_buffer.x + satirNum[i];
                             int sutun = peynir_buffer.y + sutunNum[i];
 
 
@@ -433,11 +451,107 @@ namespace YzmSnmOdev2_23._10_11._30
 
                     timer1.Interval = 150;
                 }
-                else MessageBox.Show("Fare peynire ulaşamadı!!!");
+                else {
+                    
+                    MessageBox.Show("Fare peynire ulaşamadı!!!");
+                    DialogResult devam = MessageBox.Show("Yeniden Başlamak İçin (Evet) / Düzenlemeye Devam Etmek İçin (Hayır)", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (devam == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        YenidenBasla();
+                    }
+                    else
+                    {
+                        DevamEt();
+                    }
+                } 
 
             }
 
             else MessageBox.Show("Haritada 1 fare ve 1 peynir olmalı!!!");
+
+
+           
+        }
+
+        private void YenidenBasla()
+        {
+            lblDurum.Text = "En boy girdisi bekleniyor";
+            btn_Start.Enabled = false;
+            btn_Kaldir.Enabled = false;
+            btn_AddMouse.Enabled = false;
+            btn_AddWalls.Enabled = false;
+            btn_AddCheese.Enabled = false;
+            btn_DrawMap.Enabled = true;
+
+            numHeight.Enabled = true;
+            numWidth.Enabled = true;
+
+            for (int i = 0; i < boy;i++)
+            {
+                for(int j=0;j<en;j++)
+                {
+                    this.Controls.Remove(butonlar[i,j]);
+                    butonlar[i, j].Dispose();
+                }
+            }
+            en = 0;
+            boy = 0;
+
+            fareSayisi = 0;
+            peynirSayisi = 0;
+            kaldir = false;
+            
+        }
+        private void DevamEt()
+        {
+            lblDurum.Text = "Nesnelerin yerleştirilmesi bekleniyor";
+            btn_Start.Enabled = true;
+            btn_Kaldir.Enabled = true;
+            btn_AddMouse.Enabled = true;
+            btn_AddWalls.Enabled = true;
+            btn_AddCheese.Enabled = true;
+
+            butonlar[fare.y, fare.x].Image = Properties.Resources.road;
+
+            //peynir.x = fare.x;
+            //peynir.y = fare.y;
+
+            fare.x = fare_buffer.x;
+            fare.y = fare_buffer.y;
+
+            butonlar[peynir.y, peynir.x].Image = Properties.Resources.cheese;
+
+            for (int i = 0; i < boy; i++)
+            {
+                for (int j = 0; j < en; j++)
+                {
+                    dizi[i, j] = 1;
+                    visited[i, j] = false;
+                    yol[i, j] = -1;
+                }
+            }
+
+            for (int i = 0; i < boy; i++)
+            {
+                for (int j = 0; j < en; j++)
+                {
+                    if (butonlar[i,j].Tag.ToString()=="yol" || butonlar[i, j].Tag.ToString() == "fare")
+                    butonlar[i,j].Image = Properties.Resources.road;
+                    else if (butonlar[i, j].Tag.ToString() == "duvar")
+                        dizi[i, j] = 0;
+                }
+            }
+            butonlar[fare.y, fare.x].Image = Properties.Resources.mice_kuzey;
+
+
+           
+
+
+
+           
+
+
+
         }
     }
 }

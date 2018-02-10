@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gbx_ControlPanel = new System.Windows.Forms.GroupBox();
+            this.lblDurum = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.btn_Kaldir = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_Start = new System.Windows.Forms.Button();
@@ -40,10 +42,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn_DrawMap = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_Height = new System.Windows.Forms.TextBox();
-            this.txt_Width = new System.Windows.Forms.TextBox();
             this.gbx_Labyrinth = new System.Windows.Forms.GroupBox();
+            this.numWidth = new System.Windows.Forms.NumericUpDown();
+            this.numHeight = new System.Windows.Forms.NumericUpDown();
             this.gbx_ControlPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numWidth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numHeight)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -53,6 +57,10 @@
             // gbx_ControlPanel
             // 
             this.gbx_ControlPanel.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbx_ControlPanel.Controls.Add(this.numHeight);
+            this.gbx_ControlPanel.Controls.Add(this.numWidth);
+            this.gbx_ControlPanel.Controls.Add(this.lblDurum);
+            this.gbx_ControlPanel.Controls.Add(this.label4);
             this.gbx_ControlPanel.Controls.Add(this.btn_Kaldir);
             this.gbx_ControlPanel.Controls.Add(this.label3);
             this.gbx_ControlPanel.Controls.Add(this.btn_Start);
@@ -62,20 +70,40 @@
             this.gbx_ControlPanel.Controls.Add(this.label2);
             this.gbx_ControlPanel.Controls.Add(this.btn_DrawMap);
             this.gbx_ControlPanel.Controls.Add(this.label1);
-            this.gbx_ControlPanel.Controls.Add(this.txt_Height);
-            this.gbx_ControlPanel.Controls.Add(this.txt_Width);
-            this.gbx_ControlPanel.Location = new System.Drawing.Point(508, -8);
-            this.gbx_ControlPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.gbx_ControlPanel.Location = new System.Drawing.Point(517, 11);
+            this.gbx_ControlPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbx_ControlPanel.Name = "gbx_ControlPanel";
-            this.gbx_ControlPanel.Padding = new System.Windows.Forms.Padding(4);
-            this.gbx_ControlPanel.Size = new System.Drawing.Size(375, 440);
+            this.gbx_ControlPanel.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbx_ControlPanel.Size = new System.Drawing.Size(375, 441);
             this.gbx_ControlPanel.TabIndex = 1;
             this.gbx_ControlPanel.TabStop = false;
+            // 
+            // lblDurum
+            // 
+            this.lblDurum.AutoSize = true;
+            this.lblDurum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDurum.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblDurum.Location = new System.Drawing.Point(165, 393);
+            this.lblDurum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDurum.Name = "lblDurum";
+            this.lblDurum.Size = new System.Drawing.Size(2, 19);
+            this.lblDurum.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(76, 389);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 20);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Durum :";
             // 
             // btn_Kaldir
             // 
             this.btn_Kaldir.Location = new System.Drawing.Point(80, 299);
-            this.btn_Kaldir.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Kaldir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Kaldir.Name = "btn_Kaldir";
             this.btn_Kaldir.Size = new System.Drawing.Size(100, 60);
             this.btn_Kaldir.TabIndex = 10;
@@ -87,7 +115,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(121, 19);
+            this.label3.Location = new System.Drawing.Point(121, 18);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 25);
@@ -96,7 +124,8 @@
             // 
             // btn_Start
             // 
-            this.btn_Start.Location = new System.Drawing.Point(210, 299);
+            this.btn_Start.Location = new System.Drawing.Point(211, 299);
+            this.btn_Start.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Start.Name = "btn_Start";
             this.btn_Start.Size = new System.Drawing.Size(100, 60);
             this.btn_Start.TabIndex = 8;
@@ -106,8 +135,8 @@
             // 
             // btn_AddCheese
             // 
-            this.btn_AddCheese.Location = new System.Drawing.Point(210, 231);
-            this.btn_AddCheese.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_AddCheese.Location = new System.Drawing.Point(211, 231);
+            this.btn_AddCheese.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_AddCheese.Name = "btn_AddCheese";
             this.btn_AddCheese.Size = new System.Drawing.Size(100, 60);
             this.btn_AddCheese.TabIndex = 7;
@@ -118,7 +147,7 @@
             // btn_AddMouse
             // 
             this.btn_AddMouse.Location = new System.Drawing.Point(80, 231);
-            this.btn_AddMouse.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_AddMouse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_AddMouse.Name = "btn_AddMouse";
             this.btn_AddMouse.Size = new System.Drawing.Size(100, 60);
             this.btn_AddMouse.TabIndex = 6;
@@ -128,8 +157,8 @@
             // 
             // btn_AddWalls
             // 
-            this.btn_AddWalls.Location = new System.Drawing.Point(210, 163);
-            this.btn_AddWalls.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_AddWalls.Location = new System.Drawing.Point(211, 162);
+            this.btn_AddWalls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_AddWalls.Name = "btn_AddWalls";
             this.btn_AddWalls.Size = new System.Drawing.Size(100, 60);
             this.btn_AddWalls.TabIndex = 4;
@@ -150,8 +179,8 @@
             // 
             // btn_DrawMap
             // 
-            this.btn_DrawMap.Location = new System.Drawing.Point(80, 163);
-            this.btn_DrawMap.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_DrawMap.Location = new System.Drawing.Point(80, 162);
+            this.btn_DrawMap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_DrawMap.Name = "btn_DrawMap";
             this.btn_DrawMap.Size = new System.Drawing.Size(100, 60);
             this.btn_DrawMap.TabIndex = 3;
@@ -170,34 +199,50 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "En";
             // 
-            // txt_Height
-            // 
-            this.txt_Height.Location = new System.Drawing.Point(165, 121);
-            this.txt_Height.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Height.Name = "txt_Height";
-            this.txt_Height.Size = new System.Drawing.Size(132, 22);
-            this.txt_Height.TabIndex = 2;
-            this.txt_Height.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHeight_KeyPress);
-            // 
-            // txt_Width
-            // 
-            this.txt_Width.Location = new System.Drawing.Point(165, 60);
-            this.txt_Width.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Width.Name = "txt_Width";
-            this.txt_Width.Size = new System.Drawing.Size(132, 22);
-            this.txt_Width.TabIndex = 1;
-            this.txt_Width.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWidth_KeyPress);
-            // 
             // gbx_Labyrinth
             // 
             this.gbx_Labyrinth.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.gbx_Labyrinth.Location = new System.Drawing.Point(0, -8);
-            this.gbx_Labyrinth.Margin = new System.Windows.Forms.Padding(4);
+            this.gbx_Labyrinth.Location = new System.Drawing.Point(9, 11);
+            this.gbx_Labyrinth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbx_Labyrinth.Name = "gbx_Labyrinth";
-            this.gbx_Labyrinth.Padding = new System.Windows.Forms.Padding(4);
-            this.gbx_Labyrinth.Size = new System.Drawing.Size(500, 440);
+            this.gbx_Labyrinth.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbx_Labyrinth.Size = new System.Drawing.Size(500, 441);
             this.gbx_Labyrinth.TabIndex = 2;
             this.gbx_Labyrinth.TabStop = false;
+            // 
+            // numWidth
+            // 
+            this.numWidth.Increment = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numWidth.Location = new System.Drawing.Point(165, 60);
+            this.numWidth.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.numWidth.Name = "numWidth";
+            this.numWidth.Size = new System.Drawing.Size(132, 22);
+            this.numWidth.TabIndex = 13;
+            // 
+            // numHeight
+            // 
+            this.numHeight.Increment = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numHeight.Location = new System.Drawing.Point(165, 121);
+            this.numHeight.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.numHeight.Name = "numHeight";
+            this.numHeight.Size = new System.Drawing.Size(132, 22);
+            this.numHeight.TabIndex = 14;
             // 
             // Form1
             // 
@@ -209,11 +254,14 @@
             this.ClientSize = new System.Drawing.Size(908, 466);
             this.Controls.Add(this.gbx_Labyrinth);
             this.Controls.Add(this.gbx_ControlPanel);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Labirent Fare";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gbx_ControlPanel.ResumeLayout(false);
             this.gbx_ControlPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numWidth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numHeight)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -230,10 +278,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_DrawMap;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_Height;
-        private System.Windows.Forms.TextBox txt_Width;
         private System.Windows.Forms.GroupBox gbx_Labyrinth;
         private System.Windows.Forms.Button btn_Kaldir;
+        private System.Windows.Forms.Label lblDurum;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown numHeight;
+        private System.Windows.Forms.NumericUpDown numWidth;
     }
 }
 

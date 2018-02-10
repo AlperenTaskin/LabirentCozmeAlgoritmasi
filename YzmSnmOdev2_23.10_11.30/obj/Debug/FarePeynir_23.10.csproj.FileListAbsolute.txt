@@ -10,3 +10,12 @@ C:\Users\ALPEREN\Desktop\FarePeynirAlgoritmasi\YzmSnmOdev2_23.10_11.30\obj\Debug
 C:\Users\ALPEREN\Desktop\FarePeynirAlgoritmasi\YzmSnmOdev2_23.10_11.30\obj\Debug\FarePeynir_23.10.csproj.GenerateResource.Cache
 C:\Users\ALPEREN\Desktop\FarePeynirAlgoritmasi\YzmSnmOdev2_23.10_11.30\obj\Debug\YzmSnmOdev2_23.10_11.30.exe
 C:\Users\ALPEREN\Desktop\FarePeynirAlgoritmasi\YzmSnmOdev2_23.10_11.30\obj\Debug\YzmSnmOdev2_23.10_11.30.pdb
+C:\Users\ALPEREN\Desktop\Github İcin\FarePeynirAlgoritmasi\YzmSnmOdev2_23.10_11.30\bin\Debug\YzmSnmOdev2_23.10_11.30.exe.config
+C:\Users\ALPEREN\Desktop\Github İcin\FarePeynirAlgoritmasi\YzmSnmOdev2_23.10_11.30\obj\Debug\YzmSnmOdev2_23.10_11.30.exe
+C:\Users\ALPEREN\Desktop\Github İcin\FarePeynirAlgoritmasi\YzmSnmOdev2_23.10_11.30\obj\Debug\YzmSnmOdev2_23.10_11.30.pdb
+C:\Users\ALPEREN\Desktop\Github İcin\FarePeynirAlgoritmasi\YzmSnmOdev2_23.10_11.30\bin\Debug\YzmSnmOdev2_23.10_11.30.exe
+C:\Users\ALPEREN\Desktop\Github İcin\FarePeynirAlgoritmasi\YzmSnmOdev2_23.10_11.30\bin\Debug\YzmSnmOdev2_23.10_11.30.pdb
+C:\Users\ALPEREN\Desktop\Github İcin\FarePeynirAlgoritmasi\YzmSnmOdev2_23.10_11.30\obj\Debug\FarePeynir_23.10.csprojResolveAssemblyReference.cache
+C:\Users\ALPEREN\Desktop\Github İcin\FarePeynirAlgoritmasi\YzmSnmOdev2_23.10_11.30\obj\Debug\YzmSnmOdev2_23._10_11._30.Form1.resources
+C:\Users\ALPEREN\Desktop\Github İcin\FarePeynirAlgoritmasi\YzmSnmOdev2_23.10_11.30\obj\Debug\YzmSnmOdev2_23._10_11._30.Properties.Resources.resources
+C:\Users\ALPEREN\Desktop\Github İcin\FarePeynirAlgoritmasi\YzmSnmOdev2_23.10_11.30\obj\Debug\FarePeynir_23.10.csproj.GenerateResource.Cache
